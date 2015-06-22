@@ -17,6 +17,13 @@ class WeightedQuickUnion {
 	return root(p) == root(q);
     }
 
+    private root(int p)
+    {
+	while(i != id[i]) i = id[i];
+	return i;
+    }
+    
+		 
     public union(int p, int q)
     {
 	int rootP = root(p);
