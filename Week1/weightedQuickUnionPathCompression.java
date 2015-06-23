@@ -1,8 +1,8 @@
-class WeightedQuickUnion {
+class WeightedQuickUnionPathCompression {
     private int[] id;
     private int[] sz;
 
-    public WeightedQuickUnion(int N)
+    public WeightedQuickUnionPathCompression(int N)
     {
 	id = new int[N];
 	sz = new int[N];
@@ -20,6 +20,7 @@ class WeightedQuickUnion {
     private int root(int p)
     {
 	while(i != id[i])
+	   id[i] = id[id[i]]; // make every other node in path point to its grandparent thereby halving path length
 	    i = id[i];
 	return i;
     }
@@ -43,4 +44,3 @@ class WeightedQuickUnion {
 	    sz[rootP] = rootQ;
 	}
     }
-    
